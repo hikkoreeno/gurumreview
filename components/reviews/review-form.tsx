@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/dialog";
 import { addReview } from "@/actions/review";
 import { useToast } from "@/hooks/use-toast";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const reviewSchema = z.object({
