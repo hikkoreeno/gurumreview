@@ -7,20 +7,22 @@ echo   GitHubへプッシュします
 echo ========================================
 echo.
 
-:: ステージング
-echo ファイルをステージング中...
-git add -A
+:: 現在の状態を表示
+echo 現在のファイル状態:
+git status
 
-:: 変更があるか確認
-git diff --cached --quiet
-if errorlevel 1 (
-    echo.
-    echo 変更をコミット中...
-    git commit -m "Update: 修正"
-) else (
-    echo.
-    echo 新しい変更はありません。
-)
+echo.
+echo ========================================
+echo.
+
+:: すべてのファイルをステージング（強制）
+echo すべてのファイルをステージング中...
+git add -A --verbose
+
+:: コミット
+echo.
+echo コミット中...
+git commit -m "Fix: Remove unused AnimatePresence import" --allow-empty
 
 :: プッシュ
 echo.
@@ -31,7 +33,5 @@ echo.
 echo ========================================
 echo   完了しました！
 echo ========================================
-echo.
-echo GitHubで確認: https://github.com/hikkoreeno/gurumreview
 echo.
 pause
